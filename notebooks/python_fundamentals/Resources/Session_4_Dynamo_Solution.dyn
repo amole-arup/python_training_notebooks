@@ -1,0 +1,98 @@
+<Workspace Version="1.3.2.2480" X="286.375428812007" Y="-4.91315528942226" zoom="1.00600419002725" ScaleFactor="1" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <PythonNodeModels.PythonNode guid="d9c8afd7-247d-4d66-b2e0-dd7e006ff880" type="PythonNodeModels.PythonNode" nickname="Python Script" x="12.1553828666817" y="10.7510942602735" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+#Assign your output to the OUT variable.
+OUT = " ".join(dataEnteringNode)</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="86d306a2-4f54-4e23-b1ad-a64c28c8fa14" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="-139.344482191128" y="1.94618573687131" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="&quot;Hello&quot;;" ShouldFocus="false" />
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="25af0294-e0e4-4c65-8952-ccd94300fae1" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="-138.739842239645" y="81.2771182213868" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="&quot;World&quot;;" ShouldFocus="false" />
+    <CoreNodeModels.Watch guid="aa8817c3-a513-4ad4-b32c-eb5216616718" type="CoreNodeModels.Watch" nickname="Watch" x="190.079110042592" y="23.2260084586115" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
+    <PythonNodeModels.PythonNode guid="77923179-1071-461e-aa41-ded4748a0255" type="PythonNodeModels.PythonNode" nickname="Python Script" x="308.953141870255" y="188.444543027934" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="3">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <PortInfo index="2" default="False" />
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+#Assign your output to the OUT variable.
+x = IN[0].X
+y = IN[0].Y
+z = IN[0].Z
+
+R = IN[1]
+N = IN[2]
+
+import math
+
+def nGon(centre, radius, n_sides):
+    x, y, z = centre
+    angles = [2 * math.pi * i / n_sides for i in range(0,int(n_sides))]
+    list_of_points = [(x + radius * math.cos(ang), y + radius * math.sin(ang), z) for ang in angles]
+    return list_of_points  # ((2.4, 5.5, 3,8),((2.7, 5.4, 3,8),(...))
+
+
+pts = [Point.ByCoordinates(pt[0],pt[1],pt[2]) for pt in nGon([x, y, z], R, N)]
+OUT = PolyCurve.ByPoints(pts, True)</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="4e2f3cb9-d740-4672-8098-8a12bbd8dc7d" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Point.ByCoordinates" x="102.356977945753" y="135.643411057721" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double">
+      <PortInfo index="0" default="True" />
+      <PortInfo index="1" default="True" />
+      <PortInfo index="2" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Input.IntegerSlider guid="9b48e0ec-0d34-477a-8f5b-7de291f660dc" type="CoreNodeModels.Input.IntegerSlider" nickname="Integer Slider" x="-236.308343747092" y="485.059764863605" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.Int32>8</System.Int32>
+      <Range min="3" max="15" step="1" />
+    </CoreNodeModels.Input.IntegerSlider>
+    <CoreNodeModels.Input.DoubleSlider guid="1cc40ceb-c270-4068-a484-e35b52ead5c7" type="CoreNodeModels.Input.DoubleSlider" nickname="Number Slider" x="-262.364698139497" y="421.046769242223" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.Double>3.7</System.Double>
+      <Range min="0" max="12" step="0.1" />
+    </CoreNodeModels.Input.DoubleSlider>
+    <CoreNodeModels.Input.DoubleSlider guid="c97779ee-2176-4b4c-af53-b0a6cce3d41e" type="CoreNodeModels.Input.DoubleSlider" nickname="Number Slider" x="-263.547528376001" y="320.831714792635" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.Double>6.337</System.Double>
+      <Range min="0" max="100" step="0.1" />
+    </CoreNodeModels.Input.DoubleSlider>
+    <CoreNodeModels.Input.DoubleSlider guid="8f26e5f6-6240-4e02-ab3f-7a84937804cb" type="CoreNodeModels.Input.DoubleSlider" nickname="Number Slider" x="-263.547528376001" y="220.831714792635" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.Double>5.24</System.Double>
+      <Range min="0" max="100" step="0.1" />
+    </CoreNodeModels.Input.DoubleSlider>
+    <CoreNodeModels.Input.DoubleSlider guid="b0638021-dd75-443f-bb57-15f2e80f8852" type="CoreNodeModels.Input.DoubleSlider" nickname="Number Slider" x="-263.547528376001" y="270.831714792635" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.Double>-3.817</System.Double>
+      <Range min="-4.021" max="100" step="0.1" />
+    </CoreNodeModels.Input.DoubleSlider>
+    <CoreNodeModels.Watch guid="99f437cf-2926-45c5-b8d2-d58229967d65" type="CoreNodeModels.Watch" nickname="Watch" x="463.366886359013" y="364.086253045137" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="d9c8afd7-247d-4d66-b2e0-dd7e006ff880" start_index="0" end="aa8817c3-a513-4ad4-b32c-eb5216616718" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="86d306a2-4f54-4e23-b1ad-a64c28c8fa14" start_index="0" end="d9c8afd7-247d-4d66-b2e0-dd7e006ff880" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="25af0294-e0e4-4c65-8952-ccd94300fae1" start_index="0" end="d9c8afd7-247d-4d66-b2e0-dd7e006ff880" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="77923179-1071-461e-aa41-ded4748a0255" start_index="0" end="99f437cf-2926-45c5-b8d2-d58229967d65" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="4e2f3cb9-d740-4672-8098-8a12bbd8dc7d" start_index="0" end="77923179-1071-461e-aa41-ded4748a0255" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="9b48e0ec-0d34-477a-8f5b-7de291f660dc" start_index="0" end="77923179-1071-461e-aa41-ded4748a0255" end_index="2" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="1cc40ceb-c270-4068-a484-e35b52ead5c7" start_index="0" end="77923179-1071-461e-aa41-ded4748a0255" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="c97779ee-2176-4b4c-af53-b0a6cce3d41e" start_index="0" end="4e2f3cb9-d740-4672-8098-8a12bbd8dc7d" end_index="2" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="8f26e5f6-6240-4e02-ab3f-7a84937804cb" start_index="0" end="4e2f3cb9-d740-4672-8098-8a12bbd8dc7d" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="b0638021-dd75-443f-bb57-15f2e80f8852" start_index="0" end="4e2f3cb9-d740-4672-8098-8a12bbd8dc7d" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="18.0697932141511" eyeY="27.6942020769509" eyeZ="0.123273328851537" lookX="-2.7852547732942" lookY="-19.0129122451415" lookZ="9.46841584028115" upX="0.0524319355065008" upY="0.714509483402571" upZ="0.697658290473813" />
+  </Cameras>
+</Workspace>

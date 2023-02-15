@@ -1,0 +1,21 @@
+"""
+def nGon(centre, radius, n_sides):
+    x, y, z = centre
+    angles = [2 * math.pi * i / n_sides for i in range(0,int(n_sides))]
+    list_of_points = [(x + radius * math.cos(ang), y + radius * math.sin(ang), z) for ang in angles]
+    return list_of_points  # e.g. [[2.4, 5.5, 3,8],[2.7, 5.4, 3,8],[...]]
+"""
+
+# --------------------------------
+import rhinoscriptsyntax as rs
+import math
+
+def nGon(centre, radius, n_sides):
+    x, y, z = centre
+    angles = [2 * math.pi * i / n_sides for i in range(0,int(n_sides))]
+    list_of_points = [(x + radius * math.cos(ang), y + radius * math.sin(ang), z) for ang in angles]
+    return list_of_points  # [[2.4, 5.5, 3,8], [2.7, 5.4, 3,8],[...]]
+
+pts = [rs.AddPoint(pt) for pt in nGon(rs.coerce3dpoint(C), R, N)]
+closed_pts = pts + [pts[0]]
+P = rs.AddPolyline(closed_pts)
