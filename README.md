@@ -5,11 +5,48 @@ Notebooks for teaching Python programming
 
 The buttons launch MyBinder live notebooks (note: these can take a few minutes to load, please be patient). Sometimes it may fail to start, at which point you can return to this page and click the button again.
 
-* Functional Python 1: List Comprehensions, Lambda Functions & map()  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/functional_python/Functional_Python_1.ipynb)
+## Links to Active Online Notebooks
 
+**Python Fundamentals - Online Notebooks**
 
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%201%20-%20Numbers%20%26%20Variables.ipynb) Session 1 - Numbers and Variables 
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%202%20-%20Collections%20%26%20Loops.ipynb) Session 2 - Collections and Loops 
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%202%20-%20Strings%20%26%20Dates.ipynb) Session 2 - Strings and Dates
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%202%20-%20Tuples,%20Dictionaries%20%26%20Sets.ipynb) Session 2 - Tuples, Dictionaries and Sets
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%203%20-%20Functions.ipynb) Session 3 - Functions
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%203%20-%20Python%20%26%20Excel.ipynb) Session 3 - Python and Excel
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%204%20-%20Python%20%26%20Other%20Software.ipynb) Session 4 - Python and Other Software
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%204%20-%20Scripting%20for%20Grasshopper%20and%20Dynamo.ipynb) Session 4 - Scripting for Grasshopper and Dynamo
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%205%20-%20NumPy%20and%20Pandas.ipynb) Session 5 - NumPy and Pandas
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%205%20-%20Plotting%20with%20Matplotlib.ipynb) Session 5 - Plotting with Matplotlib
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/python_fundamentals/Session%206%20-%20GUI%20tkinter.ipynb) Session 6 - GUI tkinter
 
-## Introduction: Fundamentals of Functional Programming
+**Functional Python - Online Notebooks**
+
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amole-arup/python_training_notebooks/main?urlpath=lab/tree/notebooks/functional_python/Functional_Python_1.ipynb) Functional Python 1: List Comprehensions, Lambda Functions & map() 
+
+## Python Fundamentals
+
+[Link to notebook directory](https://github.com/amole-arup/python_training_notebooks/tree/main/notebooks/python_fundamentals)
+
+Python Fundamentals are a series of Jupyter Notebooks that were developed in parallel with a series of training videos, but may also be used independently. The series is focussed on features of Python that are relevant to engineers. It assumes familiarity with Excel but not necessarily any other programming experience. If the notebooks are downloaded and run locally or run online using MyBinder (see links above), then each cell can be run, modified and rerun to learn how the language works.
+
+The sessions cover the following topics:
+
+1. Introduction + Numbers + Variables
+2. Dates, Text, Collections (Lists, Tuples, Dictionaries, Sets) & Loops
+3. Functions, Python & Excel
+4. Python for Scripting of Grasshopper, Dynamo & other software
+5. Plotting, NumPy & Pandas
+6. Graphical User Interfaces (GUIs)
+
+Note that the folder includes both teaching notebooks (name starts with "Session") and some exercises that are linked to a quiz (not provided here).
+
+## Fundamentals of Functional Programming
+
+[Link to notebook directory](https://github.com/amole-arup/python_training_notebooks/tree/main/notebooks/functional_python)
+
+This section is focussed on approaching Python with a functional programming paradigm. Notebooks are provided that demonstrate the principles.
 
 ### What are programming paradigms?
 
@@ -93,5 +130,6 @@ The notebooks contain more information and examples that can be run on MyBinder.
 * [Python Practice Book](https://anandology.com/python-practice-book/index.html) contains a section on functional programming
 
 
+Copyright - all rights reserved. Material may be viewed, including interaction on MyBinder, but may not be distributed without explicity permission (contact the author via [Issues](https://github.com/amole-arup/python_training_notebooks/issues)).
 
 
