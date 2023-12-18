@@ -1,5 +1,5 @@
 name: functional-python-code
 channels:
-  - anaconda
+  - conda-forge
 dependencies:
-  - python =3
+  - python=3
